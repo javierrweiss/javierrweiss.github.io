@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-01-03 dom 13:16 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Poder: Evolución semántica y estructural</title>
+<meta name="generator" content="Org mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+ body {
+     background-color: rgba(194, 185, 127, 1); 
+ }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Poder: Evolución semántica y estructural</h1>
+
+
+<div id="outline-container-org22bb732" class="outline-2">
+<h2 id="org22bb732"><span class="section-number-2">1</span> Supuestos fundamentales</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orge556fb0" class="outline-3">
+<h3 id="orge556fb0"><span class="section-number-3">1.1</span> Los conceptos experimentan transformaciones históricas en función de la evolución de las estructuras sociales. Es decir, el cambio conceptual es una función del cambio social. Pero también ocurre lo opuesto, a saber, que la evolución sociocultural encuentra en el cambio conceptual uno de sus motores. Por ende, el cambio social es también una función del cambio conceptual.</h3>
+</div>
+<div id="outline-container-org98723af" class="outline-3">
+<h3 id="org98723af"><span class="section-number-3">1.2</span> Una visión histórico-evolutiva del poder ayuda a discernir las distintas dimensiones sociales en las que el poder juega un papel preponderante. De este modo, es posible reconstruir las relaciones entre el poder y la política, el poder y la estructura social, el poder y el dinero y el poder y la violencia.</h3>
+</div>
+<div id="outline-container-orga6f78ac" class="outline-3">
+<h3 id="orga6f78ac"><span class="section-number-3">1.3</span> La evolución, tal como la manejamos en este contexto teórico-conceptual, no implica progreso, linealidad, darwinismo social, etc. Sencillamente es una forma de describir procesos sociales no-lineales, complejos, emergentes, auto-organizados, que se organizan en función de tres parámetros: variación, selección y re-estabilización. Esto quiere decir que, la sociedad, como sistema complejo, engendra variantes (semánticas y estructurales) que, si encuentran suficiente redundancia, son seleccionadas y eventualmente (mas no necesariamente) se convierten en el punto de apoyo o criterio de selectividad social.</h3>
+</div>
+</div>
+
+<div id="outline-container-org4b8a25b" class="outline-2">
+<h2 id="org4b8a25b"><span class="section-number-2">2</span> El poder visto desde la arqueología y la antropología</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org807f59d" class="outline-3">
+<h3 id="org807f59d"><span class="section-number-3">2.1</span> El poder en las sociedad primitivas</h3>
+</div>
+
+<div id="outline-container-org10cdfa8" class="outline-3">
+<h3 id="org10cdfa8"><span class="section-number-3">2.2</span> El poder y la desigualdad social</h3>
+</div>
+
+<div id="outline-container-orgbf1663c" class="outline-3">
+<h3 id="orgbf1663c"><span class="section-number-3">2.3</span> ¿Cómo conceptualizaban el poder las sociedades primitivas?</h3>
+</div>
+
+<div id="outline-container-orgd86ecca" class="outline-3">
+<h3 id="orgd86ecca"><span class="section-number-3">2.4</span> El poder en las sociedades estratificadas y grandes civilizaciones</h3>
+</div>
+
+<div id="outline-container-org00a2dcc" class="outline-3">
+<h3 id="org00a2dcc"><span class="section-number-3">2.5</span> El poder y los primeros Estados</h3>
+<div class="outline-text-3" id="text-2-5">
+</div>
+<div id="outline-container-org89a57b6" class="outline-4">
+<h4 id="org89a57b6"><span class="section-number-4">2.5.1</span> El problema del origen del Estado</h4>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org45bfd87" class="outline-2">
+<h2 id="org45bfd87"><span class="section-number-2">3</span> El poder y sus distintas conceptualizaciones en la historia de la teoría política</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orga373c90" class="outline-3">
+<h3 id="orga373c90"><span class="section-number-3">3.1</span> El poder y la teoría de las formas de gobierno</h3>
+</div>
+
+<div id="outline-container-org50c7290" class="outline-3">
+<h3 id="org50c7290"><span class="section-number-3">3.2</span> El poder como soberanía</h3>
+</div>
+
+<div id="outline-container-org186bc30" class="outline-3">
+<h3 id="org186bc30"><span class="section-number-3">3.3</span> La tesis del equilibrio de poder</h3>
+</div>
+</div>
+
+<div id="outline-container-org9194e03" class="outline-2">
+<h2 id="org9194e03"><span class="section-number-2">4</span> El poder visto desde la ciencia política</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org8e2ee3e" class="outline-3">
+<h3 id="org8e2ee3e"><span class="section-number-3">4.1</span> ¿Quién obtiene qué a cambio de qué?</h3>
+</div>
+
+<div id="outline-container-org353cd88" class="outline-3">
+<h3 id="org353cd88"><span class="section-number-3">4.2</span> Poder y monopolio de la violencia</h3>
+<div class="outline-text-3" id="text-4-2">
+</div>
+<div id="outline-container-orgd7c843c" class="outline-4">
+<h4 id="orgd7c843c"><span class="section-number-4">4.2.1</span> El poder de las grandes potencias</h4>
+</div>
+</div>
+
+<div id="outline-container-org9c04b5d" class="outline-3">
+<h3 id="org9c04b5d"><span class="section-number-3">4.3</span> El poder y la obligación política</h3>
+</div>
+</div>
+
+<div id="outline-container-org4297109" class="outline-2">
+<h2 id="org4297109"><span class="section-number-2">5</span> El poder y la ciencia jurídica</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-org4f72cc6" class="outline-3">
+<h3 id="org4f72cc6"><span class="section-number-3">5.1</span> Cargos, competencias y jurisdicciones</h3>
+</div>
+
+<div id="outline-container-org5ff5a4f" class="outline-3">
+<h3 id="org5ff5a4f"><span class="section-number-3">5.2</span> Abuso de poder</h3>
+</div>
+</div>
+
+<div id="outline-container-org477a083" class="outline-2">
+<h2 id="org477a083"><span class="section-number-2">6</span> El poder en la sociología</h2>
+</div>
+
+<div id="outline-container-org0727c6d" class="outline-2">
+<h2 id="org0727c6d"><span class="section-number-2">7</span> El poder en la modernidad</h2>
+<div class="outline-text-2" id="text-7">
+</div>
+<div id="outline-container-orgd4fdae8" class="outline-3">
+<h3 id="orgd4fdae8"><span class="section-number-3">7.1</span> Poder y sistema político</h3>
+</div>
+
+<div id="outline-container-orge3c09b0" class="outline-3">
+<h3 id="orge3c09b0"><span class="section-number-3">7.2</span> Poder y estatalidad</h3>
+</div>
+</div>
+
+<div id="outline-container-org2e0f908" class="outline-2">
+<h2 id="org2e0f908"><span class="section-number-2">8</span> Bibliografía recomendada</h2>
+<div class="outline-text-2" id="text-8">
+</div>
+<div id="outline-container-org4ddd873" class="outline-3">
+<h3 id="org4ddd873"><span class="section-number-3">8.1</span> Arqueología y Antropología</h3>
+<div class="outline-text-3" id="text-8-1">
+<p>
+Angela Cheater, The Anthropology of Power. London: Routledge, 1999.
+</p>
+
+<p>
+George Balandier, Antropología política. Barcelona: Ediciones Península, 1969.
+</p>
+
+<p>
+Charles Keith Maisels, Early Civilizations of the Old World. The Formative Histories of Egypt, The Levant, Mesopotamia, India and China. London: Routledge, 1999.
+</p>
+
+<p>
+David Carballo and Gary Feinman, Cooperation, Collective Action, and the Archaeology of Large-Scale Societies, Evolutionary Anthropology 25: 288-296, 2016.
+</p>
+
+<p>
+David Easton, Political Anthropology, Biennial Review of Anthropology, Vol. 1, pp. 210-262, 1959.
+</p>
+
+<p>
+David John Thomas, Order Without Government. The Society of the Pemon Indians of Venezuela. Urbana: University of Illinois Press, 1982.
+</p>
+
+<p>
+Donald Kurtz, Political Anthropology. Paradigms and Power. Boulder: Westview Press, 2001.
+</p>
+
+<p>
+Edmund Ronald Leach, Political Systems of Highland Burma. A sStudy of the Kachin Social Structure. London: The Athlone Press, 1954.
+</p>
+
+<p>
+Eric Wolf, Envisioning Power. Ideologies of Dominance and Crisis. California: University of California Press, 1999.
+</p>
+
+<p>
+Richard Blanton and Lane Fargher, Collective Action in the Formation of Pre-Modern States. New York: Springer, 2008.
+</p>
+
+<p>
+Gary Feinman and Joyce Marcus, Archaic States. Santa Fe: School of American Research Press, 1998.
+</p>
+
+<p>
+Henry Claessen and Peter Skalník, The Early State. The Hague: Mouton Publishers, 1978.
+</p>
+
+<p>
+James Scott, Against the Grain. A Deep Histoy of the Earliest States. New Haven: Yale University Press, 2017.
+</p>
+
+<p>
+Jared Diamond, Armas, gérmenes y acero. Penguin Random House, 2016.
+</p>
+
+<p>
+Justin Jennings and Timothy Earle, Urbanization, State Formation, and Cooperation. A Reappraisal, Current Anthropology Vol. 57, Num 4, pp.474-493, 2016.
+</p>
+
+<p>
+Joyce White, Incorporating Heterarchy into Theory on Socio-Political Development: The Case of Southeast Asia, in Robert Ehrenreich, Carole Crumley and Janet Levy, Heterarchy and the Analysis of Somplex Societies. Arlington: Archaeological Papers of the American Anthropological Association, No. 6, pp. 101-123, 1995.
+</p>
+
+<p>
+John Gledhill, Power and its Disguises. Anthropological Perspectives on Politics. London: Pluto Press, 2000.
+</p>
+
+<p>
+Jonathan Haas, From Leaders to Rulers. New York: Springer, 2001.
+</p>
+
+<p>
+Lane Fargher et alia, Tlaxcallan: the Archaeology of an Ancient Republic in the New World, Antiquity 85: 172-186, 2011.
+</p>
+
+<p>
+Louis Dumont, Homo Hierarchicus. The Caste System and Its Implications. Oxford: Oxford University Press, 1999.
+</p>
+
+<p>
+Marcel Mauss, Ensayo sobre el don. Forma y función de l intercambio en las sociedades arcaicas. Buenos Aires: Katz Editores, 2009.
+</p>
+
+<p>
+David Graeber and Marshall Sahlins, On Kings. Chicago: Hau Books, 2017.
+</p>
+
+<p>
+M. Fortes and E. Evans-Pritchard, African Political Systems. London: Oxford University Press, 1950.
+</p>
+
+<p>
+Morton Fried, The Evolution of Political Society. An Essay in Political Anthropology. New York: Random House, 1967.
+</p>
+
+<p>
+Myron Aronoff and Jan Kubik, Anthropology and Political Science. A Convergent Approach. New York: Berghahn Books, 2013.
+</p>
+
+<p>
+Ronald Cohen and John Middleton, Comparative Political Systems. Studies in the Politcs of Pre-industrial Societies. Austin: University of Texas Press, 1967.
+</p>
+
+<p>
+Douglas Price and Gary Feinman, Pathways to Power. New Perspetives on the Emergence of Social Inequality. New York: Springer, 2010. 
+</p>
+
+<p>
+Ted Lewellen, Political Anthropology. An Introduction. Westport: Praeger, 2003.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org34244ca" class="outline-3">
+<h3 id="org34244ca"><span class="section-number-3">8.2</span> Historia de la Teoría Política</h3>
+<div class="outline-text-3" id="text-8-2">
+<p>
+Aristóteles, Política. Madrid: Gredos, 1988.
+</p>
+
+<p>
+Quentin Skinner, Fundamentos de Pensamiento Político Moderno. Dos volúmenes. México: FCE, 1993.
+</p>
+
+<p>
+Annabel Brett and James Tully, Rethinking the Foundations of Modern Political Thought. Cambridge: Cambridge University Press, 2006.
+</p>
+
+<p>
+Jonathan Israel, La Ilustración radical. La filosofía y la construcción de la modernidad, 1650-1750. México:FCE, 2012.
+</p>
+
+<p>
+Jonathan Israel, Democratic Enlightenment. Philosophy, Revolution, and Human Rights 1750-1790. Oxford: Oxford University Press, 2011.
+</p>
+
+<p>
+Pierre Rosanvallon, La sociedad de iguales. Buenos Aires: Manantial, 2012.
+</p>
+
+<p>
+Richard Bourke and Quentin Skinner, Popular Sovereingty in Historical Perspective. Cambridge: Cambridge University Press, 2016.
+</p>
+
+<p>
+John Dunn, Democracia. El viaje inacabado. Barcelona: TusQuets, 1995.
+</p>
+
+<p>
+Thomas Hobbes, Leviathan. Oxford: Oxford University Press, 1998.
+</p>
+
+<p>
+Thomas Mitchell, Roman Republicanism: The Underrated Legacy, Proceedings if the American Philosophical Society, Vol. 145, No. 2, pp.127-137, 2001.
+</p>
+
+<p>
+Terence Ball et alia, Political Innovation and Conceptual Change. Cambridge: Cambridge University Press, 1995.
+</p>
+
+<p>
+Juan Bodino, Los Seis Libros de la República. Dos volúmenes. Madrid: Centro de Estudios Políticos y Constitucionales, 1992.
+</p>
+
+<p>
+Montesquieu, El espíritu de las leyes. Madrid: Istmo , 2002.
+</p>
+
+<p>
+Maquiavelo, Discursos sobre la primera década de Tito Livio. Madrid: Gredos, 2014.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgf071fa9" class="outline-3">
+<h3 id="orgf071fa9"><span class="section-number-3">8.3</span> Ciencia Política</h3>
+<div class="outline-text-3" id="text-8-3">
+<p>
+Karl Dietrich Bracher, Betrachtungen zur Problem der Macht. Opladen: West-deutscher Verlag, 1991.
+</p>
+
+<p>
+David Easton, A Systems Analysis of Political Life. Chicago: JohonWiley &amp; Sons, 1965.
+</p>
+
+<p>
+Robert Keohane and Joseph Nye, Power and Interdependence. Boston: Longmanm, 2012.
+</p>
+
+<p>
+Robert Dahl, Who governs? Democracy and Power in an American City.  New Haven: Yale University Press, 2005.
+</p>
+
+<p>
+Charles Tilly, Capital, coerción y los Estados europeos, 990-1990. Madrid: Alianza Editorial, 1992.
+</p>
+
+<p>
+Phillips Shively, Power and Choice. An Introduction to Political Science. London: The Rowman &amp; Littlefield Publishing Group, 2019.
+</p>
+
+<p>
+David Edelstein, Over the Horizon. Time, Uncertainty, and the Rise of Great Powers. Ithaca: Cornell University Press, 2017.
+</p>
+
+<p>
+Michael Hanagan and Chris Tilly, Contention and Trust in Cities and States. New York: Springer, 2011.
+</p>
+
+<p>
+Joseph Nye, The Powers to Lead. Oxford: Oxford University Press, 2008.
+</p>
+
+<p>
+Joseph Nye, Power in a Global Information Age. From Realism to Globalization. London: Routledge, 2004.
+</p>
+
+<p>
+Joseph Nye, Soft Power. The Means to Success in World Politics. New York: Public Affairs, 2005.
+</p>
+
+<p>
+Joseph Nye, The Future of Power. New York: Public Affairs, 2011.
+</p>
+
+<p>
+Aeron Davis, The Mediation of Power. London: Routledge, 2007.
+</p>
+
+<p>
+William McNeill, The Pursuit of Power. Technology, Armed Force, and Society since A.D. 1000. Chicago: The University of Chicago Press, 1982.
+</p>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-orge7ffb7c" class="outline-3">
+<h3 id="orge7ffb7c"><span class="section-number-3">8.4</span> Sociología</h3>
+<div class="outline-text-3" id="text-8-4">
+<p>
+Leon Mayhew, Talcott Parsons. On Institutions and Social Evolution. Chicago: The University of Chicago Press, 1982.
+</p>
+
+<p>
+Niklas Luhmann, Poder. Barcelona: Anthropos, 1995.
+</p>
+
+<p>
+Michael Mann, The Sources of Social Power. Vol. I A History of power from the Beginning to A.D. 1760. Cambridge: Cambridge University Press, 1986.
+</p>
+
+<p>
+Michael Mann, The Sources of Social Power. Vol. II The rise of classes and nation-states, 1760-1914. Cambridge: Cambridge University Press, 1993.
+</p>
+
+<p>
+Michael Mann, The Sources of Social Power. Vol. III Global Empires and Revolution, 1890-1945. Cambridge: Cambridge University Press, 2012.
+</p>
+
+<p>
+Michael Mann, The Sources of Social Power. Vol. IV Globalizations, 1945-2011. Cambridge: Cambridge University Press, 2013.
+</p>
+
+<p>
+Javier Torres Nafarrate, Luhmann, la política como sistema. México: FCE, 2004.
+</p>
+
+<p>
+Betty Dobratz, Lisa Waldner, Timothy Buzzell, Power, Politics, and Society: An Introduction to Political Sociology. London: Routledge, 2012.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2021-01-03 dom 13:16</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
