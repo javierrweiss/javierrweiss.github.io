@@ -1,5 +1,4 @@
-(ns javierweiss.views
-  (:require [javierweiss.sobremi]))
+(ns javierweiss.views)
 
 (defn menu
   []
