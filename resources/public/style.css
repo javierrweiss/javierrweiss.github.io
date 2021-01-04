@@ -1,0 +1,80 @@
+*{
+    box-sizing: border-box;
+
+}
+
+:root {
+    --color-mist-moss: rgba(194, 185, 127, 1);
+    --color-deep-taupe: rgba(136, 102, 93, 1);
+    --color-xiketic: rgba(13,1,6,1);
+    --color-blue-pigment: rgba(54,38,167,1);
+    --color-kombu-green: rgba(40,54,24);
+    --color-dark-olive: rgba(96,108,56,1);
+}
+
+#root {
+  margin: 0;
+  display: flex;
+  font-family: Arial;
+  align-items: center;
+  justify-content: center;
+}
+
+#sobremi{
+
+    background-color: rgba(194, 185, 127, 1); 
+
+}
+body {
+    background-image: url("img/egypt.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.site__title {
+  font-size: 5em;
+  width: 50%;
+  text-align: left;
+ /*  text-shadow: 0.5px 0.5px 22.5px black; */
+}
+
+.site__title-text {
+  /*background: -webkit-linear-gradient(
+    34deg,
+    var(--color-kombu-green),
+    var(--color-dark-olive)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;*/
+   color: white; 
+}
+
+article {
+    float: right;
+    width: 40%;
+    background-color: rgba(194, 185, 127, 1);
+    padding: 20px;
+    margin-top: 6em;
+    margin-bottom: 10em;
+    border-style: groove;
+    border-color: rgba(136, 102, 93, 1);
+    border-width: 15px;
+    color: black;
+}
+
+section{
+    margin-top: 8em;
+    margin-bottom: 8em; 
+    float: left;
+    width: 10%;
+    height: 10%;
+    content: "";
+    display: flex;
+    clear: both;
+    
+}
+
+footer {
+    background-color: rgba(136, 102, 93, 1);
+    padding: 20px;
+}
