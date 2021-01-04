@@ -16,6 +16,6 @@
   :prod {:main-opts ["--main"          "figwheel.main"
                      "--optimizations" "advanced"
                      "--build-once"    "prod"]}
-  :depstar {:replace-deps {seancorfield/depstar {:mvn/version "2.0.165"}}
+  :depstar {:extra-deps {seancorfield/depstar {:mvn/version "2.0.165"}}
             :ns-default hf.depstar
             :exec-args {}}}}
