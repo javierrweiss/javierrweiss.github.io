@@ -17,5 +17,4 @@
                      "--optimizations" "advanced"
                      "--build-once"    "prod"]}
   :depstar {:extra-deps {seancorfield/depstar {:mvn/version "2.0.165"}}
-            :ns-default hf.depstar
-            :exec-args {}}}}
+           }}}
