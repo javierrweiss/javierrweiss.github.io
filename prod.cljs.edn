@@ -1,3 +1,0 @@
-{:main       javierweiss.curso-sobre-el-poder
- :output-dir "out"
- :output-to  "out/dev-main.js"}
