@@ -1,3 +1,3 @@
-Curso sobre el poder
+Curriculum Vitae de José Javier Blanco Rivero
 
-Página web que alberga información sobre un curso sobre el poder. 
+
