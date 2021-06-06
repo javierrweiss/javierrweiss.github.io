@@ -1,4 +1,46 @@
+*{
+    box-sizing: border-box;
+}
 body{
     font-size: 18 rem;
-    color: green;
-}  
+    color: #504B43;
+    background-color: #8FD694;
+}
+
+#marco{
+    display: flex;
+    flex-grow: 3;
+    width: auto;
+    padding: 6.5%;
+    background-image: url("img/coloredTopography.jpg");
+    background-repeat: repeat-y;
+    background-size: cover;
+}
+h1{
+    text-align: center;
+    padding-top: 8%; 
+}
+
+#inicio{
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+
+#presentacion{
+    text-align: justify;
+    padding: 6%; 
+}
+
+h3{
+    border-bottom-color:  #504B43;
+    border-bottom-style: dotted;
+}
+
+footer{
+    justify-content: center;
+    padding: 5%;
+    background-color: #7DBA84;
+    text-align: center;
+    margin-top: 3%; 
+}
